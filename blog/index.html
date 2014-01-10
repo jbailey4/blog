@@ -1,0 +1,24 @@
+---
+layout: default
+title: Blog | joshbailey.net
+slogan: Where I write about stuff
+---
+
+<div class="main" role="main">
+
+	<h2>A list of all my post thus far</h2>
+
+	<ul class="post-list">
+
+		{% for post in site.posts %}
+			<a href={{ post.url }}><li class="post-list-item">
+				<h3>{{ post.title }}</h3>>
+				<time>{{ post.date | date: "%d %B %Y" }}</time>
+				<p>{{ post.excerpt }}</p>
+				<h5> Tags: {{ post.tags | join: " | " }} </h5>
+			</li></a>
+		{% endfor %}
+
+	</ul>
+
+</div> <!-- End Main Div-->

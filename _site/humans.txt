@@ -1,0 +1,15 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Josh Bailey -- Web Designer/Developer, Content Writer -- @josh_bailey4
+
+# THANKS
+
+    the jekyll team
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    Normalize.css, jekyll, ruby

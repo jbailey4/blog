@@ -1,0 +1,15 @@
+@media only screen and (min-width: 40em) {
+	html {
+		font-size:1.2em;
+	}
+	.main {
+		max-width:44em;
+		margin:0 auto;
+	}
+	.nav li a {
+		padding:2% 6%;
+	}
+	.post {
+		line-height: 2em;
+	}
+}

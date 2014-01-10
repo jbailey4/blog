@@ -1,0 +1,154 @@
+//define global vars for colors
+$headerBg: #5c5b5c;
+$mainBg: #d8d8d8;
+$titleColor: #8cac5e;
+$bodyColor: #333; 
+$border:rgba(0,0,0,0.3);
+$postHover:rgba(155,155,155,0.2);
+
+@import "normalize.scss";
+@import "header.scss";
+@import "syntax.scss";
+@import "posts.scss";
+@import "footer.scss";
+@import "mediaQueries.scss";
+
+//mobile first :)
+.page-wrap {
+	width:100%;
+	margin:0;
+}
+.main a:hover {
+	color:$headerBg;
+}
+//The Main nav
+.nav {
+	margin:0;
+	padding:0;
+	width:100%;
+}
+.nav li {
+	list-style-type:none;
+	display:inline;
+}
+.nav li a {
+	display:inline-block;
+	padding:1% 5%;
+	transition:background-color 0.3s linear;
+	&:hover {
+		background-color: $mainBg;
+		transition:background-color 0.1s linear;
+		//color:#596e44;
+		border-top-left-radius: 2px;
+		border-top-right-radius: 2px;
+	}
+}
+//Content
+body {
+	background-color:$mainBg;
+}
+.main {
+	width:100%;
+	background-color:$mainBg;
+	padding:1.5em 0.75em;
+	overflow:hidden;
+}
+.secondary-nav {
+	float:right;
+}
+//Additional links to other pages
+.secondary-nav a {
+	display:block;
+	text-decoration:underline;
+
+	&:hover {
+		color:$headerBg;
+	}
+}
+//The List of blog post on homepage
+.post-list {
+	@extend .nav;
+}
+.post-list li {
+	display:block;
+	width:100%;
+	margin:0;
+	padding:0 0.25em;
+	transition:box-shadow 0.3s linear;
+	&:hover {
+		background-color: $postHover;
+		box-shadow:0px 0px 5px 0px $border;
+		transition:box-shadow 0.2s linear;
+	}
+}
+//The about page styles
+.about-img {
+	border:5px solid $border;
+
+	@media only screen and (min-width: 45em) {
+		& {
+			float:left;
+			margin-right:3em;
+		}
+	}
+}
+.interests {
+	border-top:1px solid $border;
+	clear:left;
+
+	ul {
+		line-height: 1.8;
+	}
+}
+//The contact page styles
+.contact-form {
+	width:100%;
+	margin:0;
+	padding:0;
+}
+#contact {
+	width:100%;
+	margin:0;
+	padding:0;
+}
+// ::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder {
+// 		color:red;
+// 	}	
+input, select, textarea {
+	display:block;
+	width:100%;
+	margin:1.75em auto;
+	padding:1.0em;
+	background-color:rgba(0,0,0,0);
+	font-size:1.3em;
+	color:$headerBg;
+	border:0;
+	box-shadow:0;
+	outline:0;
+	border-bottom:1px solid $border;
+	border-left:1px solid $border;	
+	border-right:1px solid $border;	
+
+	&:focus::-webkit-input-placeholder {
+		transition: text-indent 0.5s 0.5s ease; 
+		text-indent: -200%;
+		opacity: 1;
+	} 	
+}
+input[type="submit"] {
+	border-top:1px solid $border;	
+	padding:0.75em;
+	transition:background-color 0.8s ease-out;
+
+	&:hover {
+		color:$mainBg;
+		background-color:$border;
+		transition:background-color 0.2s ease-out;
+	}
+}
+.form-success {
+	width:100%;
+	text-align:center;
+	color:$titleColor;
+	font-size:1.5em;
+}

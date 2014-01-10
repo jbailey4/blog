@@ -1,0 +1,23 @@
+name: joshbaileyDOTnet
+markdown: redcarpet
+pygments: true
+permalink: :title
+paginate: 6
+paginate_path: "blog/page:num"
+timezone: America/New_York
+exclude: [
+  'node_modules',
+  'components',
+  'Gruntfile.js',
+  'package.json',
+  'bower.json',
+  'requirements.txt',
+  'Gemfile',
+  'Gemfile.lock',
+  'README.md',
+  'sass',
+  'tmp'
+]
+include: [
+  '.htaccess'
+]

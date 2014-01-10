@@ -1,0 +1,30 @@
+/* Footer Styles */
+.footer {
+	@extend .header;
+	text-align:left;
+	margin:0;
+	padding:0.5em 0.75em;
+
+	a:hover {
+			color:$mainBg;
+		}
+}
+.footer p {
+	margin:0;
+	padding:0;
+	font-size:0.85em;
+	overflow:hidden;
+}
+.footer:last-child p {
+	margin-top:0.5em;
+}
+.footer .social-links {
+	display:block;
+	width:100%;
+	padding-top:0.5em;
+	text-align:center;
+
+	a {
+		padding:0 0.75em;
+	}
+}
