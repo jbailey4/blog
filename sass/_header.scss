@@ -6,7 +6,8 @@
 	.slogan {
 		font-size:2em;
 		padding:0.75em 0;
-		// text-overflow: eclipse;
-		margin:0;
+		max-width:16em;
+		margin:0 auto;
+		text-align: center;
 	}
 }

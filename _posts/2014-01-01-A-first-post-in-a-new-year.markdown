@@ -3,7 +3,7 @@ layout: post
 title:  A First Post in a New Year
 categories: first post
 tags: 2014 JavaScript
----
+---  
 As my first post and considering it is a new year I would like to talk about some of the things I’d like to change and/or work on in the coming months, my resolution you could say, and I feel like if I blog about it I will commit that much more. I will be focused on my development of websites and apps, basically just getting better!
 
 Here recently I just started to join the automation bandwagon, more specifically using [Grunt.js]. Grunt is basically a task-based command line tool you write using JavaScript and it’s built on top of Node.js. Up to the time before I started building this blog, I just used Grunt to combine CSS files and minify them, which is elementary compared to the other possibilities with Grunt. Now, after completing this site (for the most part), I feel like I have a descent Grunt workflow. In the coming months I want to expand more on the possibilities with automation in my workflow, and ultimately have a solid process that works for me and my projects.
