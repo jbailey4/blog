@@ -16,7 +16,8 @@ exclude: [
   'Gemfile.lock',
   'README.md',
   'sass',
-  'tmp'
+  'tmp',
+  '_drafts'
 ]
 include: [
   '.htaccess'

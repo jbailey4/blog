@@ -1,0 +1,38 @@
+//The List of blog post on homepage
+.post-list {
+	margin:0;
+	padding:0;
+}
+.post-list li {
+	display:block;
+	width:100%;
+	margin:0;
+	padding:0;
+	transition:box-shadow 0.3s linear;
+
+	&:hover {
+		background-color: $postHover;
+		box-shadow:0px 0px 5px 0px $border;
+		transition:box-shadow 0.2s linear;
+		cursor:pointer;
+	}
+}
+li.post-list-item {
+	padding:0 0.75em;
+
+	h3 {
+		width:auto;
+		color:$titleColor;
+		font-weight:700;
+		border-bottom:5px solid $mainBg;
+	}
+	p {
+		color:$bodyColor;
+	}
+	&:hover p {
+		color:#3a393a;
+	}
+	&:hover h3 {
+		border-bottom:5px solid $postHover;
+	}
+}

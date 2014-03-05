@@ -1,20 +1,57 @@
 ---
 layout: default
 title: About | joshbailey.net
-slogan: Howdy, there
+slogan: Hello, there
 ---
 
 <div class="main" role="main">
 
 	<img class="about-img" src="{{site.url}}/assets/strykerandI.jpg" alt="josh bailey and his dog, Stryker a Siberian Husky">
 
-	<div class="about-me">
+	<section class="about-me">
 		<p>
-			I'm Josh Bailey, a web designer/developer in <del>Columbia</del> Cola, South Carolina. I currently work for the Army doing all sorts of things, from E-learning web related-work to mobile app development (using <a href="http://www.phonegap.com/">PhoneGap</a>). I also do some freelance work from time-to-time and work on various web projects as often as possible. When not consumed by web development, I'm usually skateboarding, playing with my dogs, and/or hanging with my <a href="http://www.brookemcalinden.wordpress.com/">girlfriend, Brooke</a>.
+			I'm Josh Bailey, a web designer in <del>Columbia</del> Cola, South Carolina. I currently work for the Army doing all sorts of things, from E-learning web related-work to mobile app development (using <a href="http://www.phonegap.com/">PhoneGap</a>). I also do some freelance work from time-to-time and work on various web projects as often as possible. When not consumed by web development, I am usually skateboarding, playing with my dogs, or hanging with my <a href="http://www.brookemcalinden.wordpress.com/">girlfriend, Brooke</a>.
 		</p>
-	</div>	
+	</section>
 
-		<div class="interests">
+	<section class="life-timeline">
+		<h3>A short glimpse</h3>
+		<div>
+
+			<h4 class="year-title">2013</h4>
+			<ul>
+				{% for time in site.data.times_2013 %}
+
+					<li> {{ time.time }} </li>
+
+				{% endfor %}
+
+			</ul>
+
+			<h4 class="year-title">2012</h4>
+			<ul>
+				{% for time in site.data.times_2012 %}
+
+					<li> {{ time.time }} </li>
+
+				{% endfor %}
+								
+			</ul>
+
+			<h4 class="year-title">Earlier</h4>
+			<ul>
+				{% for time in site.data.times_earlier %}
+
+					<li> {{ time.time }} </li>
+
+				{% endfor %}
+								
+			</ul>
+
+		</div>
+	</section>
+
+		<!-- <div class="interests">
 			<h3>My Most Notable Interests</h3>
 			<ul>
 				<li>Web Design/Dev
@@ -39,5 +76,5 @@ slogan: Howdy, there
 				<li>Beer.</li>
 
 			</ul>
-		</div>
+		</div> -->
 </div> <!-- End Main Div-->

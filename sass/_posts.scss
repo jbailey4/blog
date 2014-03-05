@@ -8,24 +8,18 @@
 .meta-post-date {
 	font-weight:400;
 }
-li.post-list-item {
-	h3 {
-		width:auto;
-		color:$titleColor;
-		font-weight:700;
-		border-bottom:5px solid $mainBg;
-	}
-	p {
-		color:$headerBg;
-	}
-	&:hover p {
-		color:#3a393a;
-	}
-	&:hover h3 {
-		border-bottom:5px solid $postHover;
-	}
-}
 aside {
 	padding:0.5em;
 	border-left:0.5em solid $titleColor;
+}
+.post ul li {
+	margin-bottom:1em;
+}
+.post ul li.snippet {
+	margin-bottom:1.3em;
+}
+li.snippet > code {
+	color:$headerBg;
+	border-bottom:1px solid $titleColor;
+	padding:0.2em;
 }

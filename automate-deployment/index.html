@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Automating Deployment using the Git Post-Receive hook</title>
+        <meta name="description" content="The online documents of Josh Bailey, his professional and personal blog. Mostly about web design/development, tech, and sometimes his pet dogs.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Load custom font, defined in main.css | 'Lato', fallback sans-serif -->
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,400,700,400italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/css/main.css">
+        <!-- JS -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46923486-1', 'joshbailey.net');
+        ga('send', {
+          'hitType': 'pageview',
+          'page': '/blog',
+          'title': 'Blog Page'
+        });
+      </script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="page-wrap">
+          
+          <header role="banner" class="header">
+
+            <h1 class="slogan">Automating Deployment using the Git Post-Receive hook</h1>
+
+             <nav>
+                   <ul class="nav" id="nav">
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                   </ul>
+              </nav>
+
+          </header>
+
+			<div class="main">
+
+				<p class="meta-post-date">28 Jan 2014</p>
+
+				<article class="post">
+				<p>Deployment has been a step in my workflow I never really given any time or thought to improve, where before I used <a href="https://filezilla-project.org/">FileZilla</a> or <a href="http://wbond.net/sublime_packages/sftp">Sublime SFTP</a>. Using FileZilla to FTP files to a remote location has some huge downfalls, such as having to keep up with files changed and navigating through folders on the local machine and the remote server. After creating this blog and constantly adding content it made since to automate deployment.</p>
+
+<p>They&#39;re numerous ways to deploy a website and it all depends on your workflow, if there is team development, and the amount of access to the remote server. Chris Coyier of CSS-Tricks has an <a href="http://css-tricks.com/deployment/" title="CSS-Tricks Deployment article">awesome article</a> on the subject. If you are using Jekyll for any reason like me the documentation there has some neat <a href="http://jekyllrb.com/docs/deployment-methods/">deployment options</a>. After playing and looking around at the different options I choose to use Git as a way to deploy changes. Following is how I did just that.</p>
+
+<p><strong>On your remote machine:</strong><br>
+Create a remote repository (somewhere that makes sense relative to the live folder you are serving you website from), this will be the location you push changes to from your local machine. Then add git to that directory.</p>
+
+<div class="highlight"><pre><code class="bash">remote:<span class="nv">$ </span>mkdir ~/public/myRepo.git <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/public/myRepo.git
+remote:<span class="nv">$ </span>git init --bare
+</code></pre></div>
+ 
+
+<p>Using <code>--bare</code> means that this repository will not contain a working directory and only the version history of your code. More can about a bare git repository can be found <a href="http://www.saintsjd.com/2011/01/what-is-a-bare-git-repository/">here</a>.<br>
+<strong>On your local machine:</strong><br>
+I&#39;m going to assume you already have a directory with some files that you would like to serve up on your server, or a local copy of your website. So in your project directory add Git and add a remote repository pointing to the repository you made earlier.</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nb">local</span>:<span class="nv">$ </span><span class="nb">cd </span>path/to/project/
+<span class="nb">local</span>:<span class="nv">$ </span>git init
+<span class="nb">local</span>:<span class="nv">$ </span>git add remote live ssh://username@server/path/to/myRepo.git
+</code></pre></div>
+  
+
+<p>At this point you should be able to push changes, with <code>git push live master</code>. Of course this will not update anything else such as your website on your server, it will just contain what you push to it. Luckily though Git repositories have a directory named <em>hooks</em>, and in that directory are sample files for possible actions that you can hook and perform custom actions set by you. The <a href="http://git-scm.com/book/en/Customizing-Git-Git-Hooks" title="Git Documentation on possible hooks">Git Docs</a> list three possible server hooks: <em>pre-receive</em>, <em>post-receive</em>, and <em>update</em>. Post-Receive takes all the data you push to the repository and after the process is complete this hook can be used to update other services, just what we are looking for. Here is how you set that up.<br>
+<strong>On your remote machine:</strong><br>
+Navigate to the bare repository you created earlier, add some configuration settings, and create the post-receive file in the hooks directory.</p>
+
+<div class="highlight"><pre><code class="bash">remote:<span class="nv">$ </span><span class="nb">cd</span> /path/to/myRepo.git
+remote:<span class="nv">$ </span>git config core.worktree /path/to/project
+remote:<span class="nv">$ </span>git config core.bare <span class="nb">false</span>
+remote:<span class="nv">$ </span>git config receive.denycurrentbranch ignore
+</code></pre></div>
+  
+
+<p>Now all we have to do is create the post-receive file and make it executable!</p>
+
+<div class="highlight"><pre><code class="bash">remote:<span class="nv">$ </span><span class="nb">cd</span> /path/to/myRepo.git/hooks
+remote:<span class="nv">$ </span>cat &gt; post-receive
+<span class="c">#!/bin/sh</span>
+git checkout -f
+<span class="c">#Thats it! press *control-d* to save</span>
+remote:<span class="nv">$ </span>chmod +x post-receive
+</code></pre></div>
+ 
+
+<p>Now the next time you push changes from your local repository to the remote you should see the changes on your live site (the worktree you configured on the remote repository)</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nb">local</span>:<span class="nv">$ </span><span class="nb">cd </span>path/to/project/
+<span class="nb">local</span>:<span class="nv">$ </span>git push live master
+</code></pre></div>
+
+<p><aside>Its worth mentioning that &quot;live&quot; can be named anything that makes sense to you or your team, it&#39;s just a friendly name for your remote repository. When you clone a repository the name defaults to &quot;origin&quot;.</aside></p>
+
+<p><strong>Some common pitfalls</strong>
+<ul>
+    <li>Make sure you have the correct permissions to ssh into your remote server</li>
+    <li>Making sure your paths are identical and correspond correctly! Navigating to the <strong>.git</strong> folder and opening the <strong>config</strong> file will show you all your settings and the default ones.</li>
+    <li>Be sure that you actually make changes locally, add those changes to the next commit, run commit, and finally push to the remote repository</li>
+</ul></p>
+
+				</article>
+
+			</div>
+
+<div class="footer">
+            <p>&copy; 2013 Josh Bailey - 
+              Site built using <a href="#">jekyll</a>. You can check out the source code on <a href="#">Github</a>.</p>
+              <div class="social-links">
+                <a href="#">twitter</a>
+                <a href="#">facebook</a>
+                <a href="#">linkedin</a>
+              </div>
+          </div>
+
+        </div><!-- End Page-Wrap -->
+</body>
+</html>

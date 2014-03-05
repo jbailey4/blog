@@ -1,0 +1,59 @@
+/* styles for the timeline on the about page */
+.life-timeline {
+	clear:left;
+
+	a.link-timeline {
+		color: $headerBg;
+
+		&:hover {
+			color: $mainBg;
+		}
+	}
+
+	h3 {
+		padding:1em 0;
+	}
+	div {
+		overflow: hidden;
+		position: relative;
+		margin-bottom: 2em;
+		background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, $border), color-stop(0.9%, $border), color-stop(1%, transparent));
+		background-image: -webkit-linear-gradient(left, $border 0%, $border 0.9%,transparent 1%);
+		background-image: -moz-linear-gradient(left, $border 0%,$border 0.9%,transparent 1%);
+		background-image: -o-linear-gradient(left, $border 0%,$border 0.9%,transparent 1%);
+		background-image: linear-gradient(left, $border 0%,$border 0.9%,transparent 1%);
+	}
+	.year-title {
+		max-width: 6em;
+		padding:0.5em;
+		margin:1em auto 0.75em auto;
+		background-color:$headerBg;
+		color:$titleColor;
+		text-align:center;
+	}
+	ul {
+		overflow: hidden;
+		margin:0;
+		padding:0;
+		list-style:none outside;
+
+		li {
+			padding:2%;
+			margin:0 0 1em 1em;
+			background-color:$border;
+			position:relative;
+
+			&:before {
+				$arrowSize:12px;
+				content:"";
+				border-top: $arrowSize solid transparent;
+				border-bottom: $arrowSize solid transparent;
+				border-right: $arrowSize solid $border;
+
+				position:absolute;
+				left:-0.65em;
+				top:1em;
+			}
+		}
+	}
+}

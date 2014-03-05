@@ -1,16 +1,18 @@
 //define global vars for colors
 $headerBg: #5c5b5c;
-$mainBg: #d8d8d8;
+$mainBg: #fefefe;
 $titleColor: #8cac5e;
-$bodyColor: #333; 
+$bodyColor: #222; 
 $border:rgba(0,0,0,0.3);
 $postHover:rgba(155,155,155,0.2);
 
 @import "normalize.scss";
 @import "header.scss";
+@import "list-of-posts.scss";
 @import "syntax.scss";
 @import "posts.scss";
 @import "footer.scss";
+@import "timeline.scss";
 @import "mediaQueries.scss";
 
 //mobile first :)
@@ -21,36 +23,14 @@ $postHover:rgba(155,155,155,0.2);
 .main a:hover {
 	color:$headerBg;
 }
-//The Main nav
-.nav {
-	margin:0;
-	padding:0;
-	width:100%;
-}
-.nav li {
-	list-style-type:none;
-	display:inline;
-}
-.nav li a {
-	display:inline-block;
-	padding:1% 5%;
-	transition:background-color 0.3s linear;
-	&:hover {
-		background-color: $mainBg;
-		transition:background-color 0.1s linear;
-		//color:#596e44;
-		border-top-left-radius: 2px;
-		border-top-right-radius: 2px;
-	}
-}
 //Content
 body {
 	background-color:$mainBg;
+	color:$bodyColor;
 }
 .main {
-	width:100%;
-	background-color:$mainBg;
-	padding:1.5em 0.75em;
+	width:90%;
+	margin:1em auto;
 	overflow:hidden;
 }
 .secondary-nav {
@@ -63,22 +43,6 @@ body {
 
 	&:hover {
 		color:$headerBg;
-	}
-}
-//The List of blog post on homepage
-.post-list {
-	@extend .nav;
-}
-.post-list li {
-	display:block;
-	width:100%;
-	margin:0;
-	padding:0 0.25em;
-	transition:box-shadow 0.3s linear;
-	&:hover {
-		background-color: $postHover;
-		box-shadow:0px 0px 5px 0px $border;
-		transition:box-shadow 0.2s linear;
 	}
 }
 //The about page styles

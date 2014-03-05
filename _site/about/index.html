@@ -13,7 +13,23 @@
         <!-- JS -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46923486-1', 'joshbailey.net');
+        ga('send', {
+          'hitType': 'pageview',
+          'page': '/home',
+          'title': 'Landing Page'
+        });
+      </script>
+
     </head>
+
     <body>
         <!--[if lt IE 8]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -22,7 +38,7 @@
           
           <header role="banner" class="header">
 
-            <h1 class="slogan"><a href="/">Howdy, there</a></h1>
+            <h1 class="slogan"><a href="/">Hello, there</a></h1>
 
              <nav>
                    <ul class="nav" id="nav">
@@ -39,13 +55,126 @@
 
 	<img class="about-img" src="/assets/strykerandI.jpg" alt="josh bailey and his dog, Stryker a Siberian Husky">
 
-	<div class="about-me">
+	<section class="about-me">
 		<p>
-			I'm Josh Bailey, a web designer/developer in <del>Columbia</del> Cola, South Carolina. I currently work for the Army doing all sorts of things, from E-learning web related-work to mobile app development (using <a href="http://www.phonegap.com/">PhoneGap</a>). I also do some freelance work from time-to-time and work on various web projects as often as possible. When not consumed by web development, I'm usually skateboarding, playing with my dogs, and/or hanging with my <a href="http://www.brookemcalinden.wordpress.com/">girlfriend, Brooke</a>.
+			I'm Josh Bailey, a web designer in <del>Columbia</del> Cola, South Carolina. I currently work for the Army doing all sorts of things, from E-learning web related-work to mobile app development (using <a href="http://www.phonegap.com/">PhoneGap</a>). I also do some freelance work from time-to-time and work on various web projects as often as possible. When not consumed by web development, I am usually skateboarding, playing with my dogs, or hanging with my <a href="http://www.brookemcalinden.wordpress.com/">girlfriend, Brooke</a>.
 		</p>
-	</div>	
+	</section>
 
-		<div class="interests">
+	<section class="life-timeline">
+		<h3>A short glimpse</h3>
+		<div>
+
+			<h4 class="year-title">2013</h4>
+			<ul>
+				
+
+					<li> Deployed this blog </li>
+
+				
+
+					<li> Bought my first brand new car, 2014 Ford Escape (check back here in a few years I might have it payed off by then) </li>
+
+				
+
+					<li> Helped my friend/co-worker Eric Mcdaniel with a project, rentmention.com (still in dev) </li>
+
+				
+
+					<li> Developed my first iOS & Android hybird app, the USAREC Family Strong Resource Guide - many thanks to my teammates at the ssi </li>
+
+				
+
+					<li> Started renting my first own home </li>
+
+				
+
+					<li> Began my position as an IMI Developer at the soldier support institute </li>
+
+				
+
+					<li> Attended the ConvergeSE conference. It was awesome! </li>
+
+				
+
+					<li> Worked at IdeaCog, where I crated various graphics and integrated custom code in CMSs. <a href="http://www.flyingbanners.com" class="link link-timeline">flyingbanners.com</a> </li>
+
+				
+
+					<li> Graduated college </li>
+
+				
+
+					<li> Interned at Glory Communications, a radio station here in Columbia, SC. Managed their servers and began revamping their 3 outdated websites. </li>
+
+				
+
+					<li> Created a website for a local landscaping architecture business, <a href="http://www.kbsala.com" class="link link-timeline">kbsala.com</a> </li>
+
+				
+
+					<li> Moved to the big ole city, Columbia, SC to finish school and focus on a career in web design </li>
+
+				
+
+			</ul>
+
+			<h4 class="year-title">2012</h4>
+			<ul>
+				
+
+					<li> Became fascinated with RWD - responsive web design </li>
+
+				
+
+					<li> This would be the year I really decided I wanted to make web design a career and started getting up to date on all this HTML5 and CSS3 stuff </li>
+
+				
+
+					<li> Worked on various projects while in school. Database design, Java, PHP, JS </li>
+
+				
+
+					<li> Moved out of the parents and in with a friend </li>
+
+				
+								
+			</ul>
+
+			<h4 class="year-title">Earlier</h4>
+			<ul>
+				
+
+					<li> Began school at Midlands Tech, enrolling in Computer Technology </li>
+
+				
+
+					<li> Got a touch of code at Wintrop University and decided to switch tracks </li>
+
+				
+
+					<li> Raised money for a skatepark to be built in my hometown </li>
+
+				
+
+					<li> Study Graphic Design at Wintrop University for a few semesters </li>
+
+				
+
+					<li> Started drawing, designing stuff, looking into graphic design </li>
+
+				
+
+					<li> Skated, High School, etc. </li>
+
+				
+								
+			</ul>
+
+		</div>
+	</section>
+
+		<!-- <div class="interests">
 			<h3>My Most Notable Interests</h3>
 			<ul>
 				<li>Web Design/Dev
@@ -70,12 +199,13 @@
 				<li>Beer.</li>
 
 			</ul>
-		</div>
+		</div> -->
 </div> <!-- End Main Div-->
+
 
           <div class="footer">
             <p>&copy; 2013 Josh Bailey - 
-              Site built using <a href="http://jekyllrb.com/">jekyll</a>. You can check out the source code on <a href="https://github.com/jbailey4/joshbailey.net" target="_blank">Github</a>.</p>
+              Site built using <a href="http://jekyllrb.com/">jekyll</a>. You can check out the source code on <a href="https://github.com/jbailey4/joshbaileyDOTnet" target="_blank">Github</a>.</p>
               <div class="social-links">
                 <a href="https://twitter.com/josh_bailey4">twitter</a>
                 <a href="https://www.facebook.com/josh.bailey.9231">facebook</a>
@@ -84,15 +214,5 @@
           </div>
 
         </div><!-- End Page-Wrap -->
-
-       <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-46923486-1', 'joshbailey.com');
-        ga('send', 'pageview');
-      </script>
     </body>
 </html>
